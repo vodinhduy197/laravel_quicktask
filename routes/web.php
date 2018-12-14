@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('tasks');
-});
+Route::resource('/','Index');
