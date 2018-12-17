@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('/','Index');
+Route::resource('/task','Home');
