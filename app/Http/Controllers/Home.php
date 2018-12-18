@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Tasks;
 use App\Task;
 
-class Index extends Controller
+class Home extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -87,6 +87,13 @@ class Index extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $task = Task::findOrFail($id);
+            $task->delete();
+
+            return redirect("/task")->with('success', trans('index.delete-success'));
+        } catch (Exception $exception) {
+            return redirect("/task")->with('fail', trans('index.delete-fail'));
+        }
     }
 }
