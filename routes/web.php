@@ -12,3 +12,7 @@
 */
 
 Route::resource('/task','Home');
+Route::get('/', 'Page@index')->name('page');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
